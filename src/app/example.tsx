@@ -131,7 +131,7 @@ const Example = () => {
           <input
             className="w-full p-2 border border-gray-300 rounded shadow-xl text-black"
             value={input}
-            placeholder="Say something..."
+            placeholder="How can I help you?"
             onChange={handleInputChange}
           />
         </form>
