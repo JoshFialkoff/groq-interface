@@ -6,14 +6,14 @@ export async function POST(req: Request) {
     const formData = await req.formData();
     console.log(formData);
 
-    const file = formData.get('pdf') as File;
+    const file = formData.get('file') as File;
     const arrayBuffer = await file.arrayBuffer();
 
     const buffer = Buffer.from(arrayBuffer);
 
     const data = await PdfParse(buffer);
 
-    return NextResponse.json({ result: data.text }, { status: 200 });
+    return NextResponse.json({ text: data.text }, { status: 200 });
   } catch (e) {
     console.error(e);
     return NextResponse.json({ status: 'fail', error: e });
